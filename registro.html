@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registro - SanaPres</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #00b4db, #0083b0);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .registro-container {
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      width: 90%;
+      max-width: 400px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #0083b0;
+    }
+    label {
+      font-weight: bold;
+      display: block;
+      margin-top: 10px;
+    }
+    input {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    button {
+      margin-top: 20px;
+      width: 100%;
+      padding: 10px;
+      background: #0083b0;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #00b4db;
+    }
+  </style>
+</head>
+<body>
+  <div class="registro-container">
+    <h2>Registro</h2>
+    <form action="prestamos.html">
+      <label>Nombre completo:</label>
+      <input type="text" required>
+      
+      <label>DNI:</label>
+      <input type="text" required>
+      
+      <label>Dirección:</label>
+      <input type="text" required>
+      
+      <label>Ciudad:</label>
+      <input type="text" required>
+      
+      <label>Teléfono:</label>
+      <input type="tel" required>
+      
+      <label>Banco:</label>
+      <input type="text" required>
+      
+      <label>Cuenta bancaria:</label>
+      <input type="text" required>
+      
+      <label>Foto DNI:</label>
+      <input type="file" accept="image/*" required>
+      
+      <label>Identificación facial:</label>
+      <input type="file" accept="image/*" capture="user" required>
+      
+      <button type="submit">Registrar</button>
+    </form>
+  </div>
+</body>
+</html>
