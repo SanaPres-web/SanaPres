@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Solicitar Préstamo - SanaPres</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #0083b0, #00b4db);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .prestamo-container {
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      width: 90%;
+      max-width: 400px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      text-align: center;
+    }
+    h2 {
+      color: #0083b0;
+    }
+    input[type="number"], input[type="range"] {
+      width: 100%;
+      margin-top: 10px;
+    }
+    button {
+      margin-top: 20px;
+      width: 100%;
+      padding: 10px;
+      background: #0083b0;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #00b4db;
+    }
+    .resultado {
+      margin-top: 15px;
+      font-weight: bold;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <div class="prestamo-container">
+    <h2>Solicitar Préstamo</h2>
+    <form onsubmit="calcularPrestamo(event)">
+      <label>Monto:</label>
+      <input type="number" id="monto" min="100" step="50" required>
+
+      <label>Plazo (días):</label>
+      <input type="range" id="plazo" min="7" max="60" value="30" oninput="mostrarPlazo(this.value)">
+      <p id="plazoTexto">30 días</p>
+
+      <button type="submit">Solicitar</button>
+    </form>
+    <div class="resultado" id="resultado"></div>
+    <a href="mis-prestamos.html">Ver mis préstamos</a>
+  </div>
+
+  <script>
+    function mostrarPlazo(valor) {
+      document.getElementById("plazoTexto").innerText = valor + " días";
+    }
+
+    function calcularPrestamo(event) {
+      event.preventDefault();
+      let monto = parseFloat(document.getElementById("monto").value);
+      let plazo = document.getElementById("plazo").value;
+      let total = monto * 1.2; // 20% interés
+      document.getElementById("resultado").innerText =
+        "Préstamo aprobado: S/" + monto + 
+        " | A pagar: S/" + total.toFixed(2) + 
+        " en " + plazo + " días.";
+    }
+  </script>
+</body>
+</html>
