@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SanaPreS - Solicitar Préstamo</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #00c6ff, #0072ff);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .container {
+      background: #fff;
+      padding: 20px;
+      border-radius: 15px;
+      width: 350px;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+    h1 {
+      color: #0072ff;
+      margin-bottom: 20px;
+    }
+    label {
+      font-weight: bold;
+      display: block;
+      margin: 10px 0 5px;
+      text-align: left;
+    }
+    input, select {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+    .result {
+      margin: 15px 0;
+      font-size: 16px;
+      font-weight: bold;
+    }
+    .aprobado {
+      color: green;
+      margin-bottom: 15px;
+    }
+    button {
+      padding: 10px;
+      border: none;
+      border-radius: 8px;
+      background: #0072ff;
+      color: #fff;
+      font-size: 16px;
+      cursor: pointer;
+      margin: 5px;
+    }
+    button:hover {
+      background: #005bb5;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>SanaPreS</h1>
+    <p><strong>Solicita tu préstamo</strong></p>
+
+    <label for="monto">Monto (S/)</label>
+    <input type="range" id="monto" min="100" max="500" value="100">
+    <p id="montoSeleccionado">S/ 100</p>
+
+    <label for="dias">Plazo (días)</label>
+    <select id="dias">
+      <option value="7">7 días</option>
+      <option value="15">15 días</option>
+      <option value="30">30 días</option>
+      <option value="60">60 días</option>
+    </select>
+
+    <div class="result" id="interes"></div>
+    <div class="result" id="total"></div>
+    <div class="aprobado">✅ Aprobado</div>
+
+    <!-- Botones de navegación -->
+    <button type="button" onclick="window.location.href='mis-prestamos.html'">
+      Siguiente
+    </button>
+    <button type="button" onclick="window.location.href='registro.html'">
+      ← Volver
+    </button>
+  </div>
+
+  <script>
+    const montoInput = document.getElementById("monto");
+    const montoSeleccionado = document.getElementById("montoSeleccionado");
+    const diasInput = document.getElementById("dias");
+    const interesDiv = document.getElementById("interes");
+    const totalDiv = document.getElementById("total");
+
+    function calcular() {
+      const monto = parseFloat(montoInput.value);
+      const dias = parseInt(diasInput.value);
+      const interes = monto * 0.20; // 20% interés
+      const total = monto + interes;
+
+      montoSeleccionado.textContent = "S/ " + monto;
+      interesDiv.textContent = "Interés: S/ " + interes.toFixed(2);
+      totalDiv.textContent = "Total a pagar: S/ " + total.toFixed(2);
+    }
+
+    montoInput.addEventListener("input", calcular);
+    diasInput.addEventListener("change", calcular);
+
+    // Calcular al inicio
+    calcular();
+  </script>
+</body>
+</html>

@@ -3,90 +3,74 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Registro - SanaPres</title>
+  <title>SanaPreS - Registro</title>
   <style>
     body {
+      margin: 0;
+      padding: 0;
       font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #00b4db, #0083b0);
+      background: linear-gradient(180deg, #00aaff, #0052cc);
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100vh;
-      margin: 0;
     }
-    .registro-container {
-      background: #fff;
-      padding: 20px;
-      border-radius: 10px;
-      width: 90%;
-      max-width: 400px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    }
-    h2 {
+    .container {
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      width: 100%;
+      max-width: 350px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
       text-align: center;
-      margin-bottom: 20px;
-      color: #0083b0;
     }
-    label {
-      font-weight: bold;
-      display: block;
-      margin-top: 10px;
-    }
+    .logo-img { width: 80px; margin-bottom: 10px; }
+    .brand { font-size: 1.8em; font-weight: bold; color: #0052cc; margin-bottom: 8px; }
+    .subtitle { font-size: 1em; color: #333; margin-bottom: 20px; }
     input {
       width: 100%;
-      padding: 8px;
-      margin-top: 5px;
+      padding: 12px;
+      margin: 8px 0;
       border: 1px solid #ccc;
-      border-radius: 6px;
+      border-radius: 8px;
+      font-size: 1em;
     }
     button {
-      margin-top: 20px;
       width: 100%;
-      padding: 10px;
-      background: #0083b0;
+      padding: 12px;
+      margin-top: 15px;
+      background: #0052cc;
       color: white;
       border: none;
-      border-radius: 6px;
-      font-size: 16px;
+      border-radius: 8px;
+      font-size: 1em;
       cursor: pointer;
     }
-    button:hover {
-      background: #00b4db;
-    }
+    button:hover { background: #003d99; }
   </style>
 </head>
 <body>
-  <div class="registro-container">
-    <h2>Registro</h2>
-    <form action="prestamos.html">
-      <label>Nombre completo:</label>
-      <input type="text" required>
-      
-      <label>DNI:</label>
-      <input type="text" required>
-      
-      <label>Dirección:</label>
-      <input type="text" required>
-      
-      <label>Ciudad:</label>
-      <input type="text" required>
-      
-      <label>Teléfono:</label>
-      <input type="tel" required>
-      
-      <label>Banco:</label>
-      <input type="text" required>
-      
-      <label>Cuenta bancaria:</label>
-      <input type="text" required>
-      
-      <label>Foto DNI:</label>
-      <input type="file" accept="image/*" required>
-      
-      <label>Identificación facial:</label>
-      <input type="file" accept="image/*" capture="user" required>
-      
-      <button type="submit">Registrar</button>
+  <div class="container">
+    <!-- Logo -->
+    <svg class="logo-img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+      <circle cx="32" cy="32" r="30" fill="#00aaff"/>
+      <path d="M20 34 L28 42 L46 22" stroke="white" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+
+    <!-- Marca -->
+    <div class="brand">SanaPreS</div>
+
+    <!-- Mensaje -->
+    <div class="subtitle">Completa tu registro</div>
+
+    <!-- Formulario que redirige a solicitarprestamo.html -->
+    <form onsubmit="event.preventDefault(); window.location.href='solicitarprestamo.html';">
+      <input type="text" placeholder="Nombre completo" required>
+      <input type="text" placeholder="Número de DNI" required>
+      <input type="text" placeholder="Dirección" required>
+      <input type="text" placeholder="Nombre del banco" required>
+      <input type="text" placeholder="Cuenta bancaria" required>
+      <button type="submit">Siguiente</button>
     </form>
   </div>
 </body>

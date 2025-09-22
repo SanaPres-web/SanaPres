@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SanaPreS - Mis Préstamos</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(180deg, #00aaff, #0052cc);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 20px;
+    }
+    .container {
+      background: #fff;
+      border-radius: 15px;
+      padding: 20px;
+      max-width: 400px;
+      width: 100%;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+    .back {
+      text-decoration: none;
+      color: #0052cc;
+      font-weight: bold;
+      display: inline-block;
+      margin-bottom: 15px;
+    }
+    h2 {
+      text-align: center;
+      color: #0052cc;
+    }
+    .detalle {
+      margin: 15px 0;
+      padding: 12px;
+      background: #f0f6ff;
+      border-radius: 10px;
+    }
+    button {
+      width: 100%;
+      padding: 12px;
+      margin-top: 15px;
+      background: #0052cc;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1em;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #003d99;
+    }
+    .hidden { display: none; }
+    .msg {
+      margin-top: 15px;
+      padding: 10px;
+      background: #e6f7e6;
+      border: 1px solid #00aa00;
+      border-radius: 8px;
+      color: #006600;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Flecha regresar -->
+    <a href="solicitar.html" class="back">← Regresar</a>
+
+    <h2>Mis Préstamos</h2>
+
+    <!-- Detalle del préstamo -->
+    <div class="detalle">
+      <p><strong>Monto aprobado:</strong> S/ <span id="monto"></span></p>
+      <p><strong>Plazo:</strong> 30 días</p>
+      <p><strong>Tasa de interés:</strong> 20% mensual</p>
+      <p><strong>Total a pagar:</strong> S/ <span id="total"></span></p>
+      <p><strong>Estado:</strong> Pendiente de pago</p>
+    </div>
+
+    <!-- Botón pagar -->
+    <button onclick="mostrarPago()">Pagar</button>
+
+    <!-- Formulario de pago -->
+    <div id="pagoForm" class="hidden">
+      <h3>Realizar pago</h3>
+      <p><strong>Cuenta de pago:</strong> BCP - 1234567890</p>
+      <label>Subir baucher:</label>
+      <input type="file" id="baucher" accept="image/*,.pdf">
+      <button onclick="confirmarPago()">Confirmar pago</button>
+    </div>
+
+    <!-- Mensaje de confirmación -->
+    <div id="msg" class="msg hidden">
+      Revisaremos su pago y le notificaremos cuando esté confirmado.<br>
+      Será redirigido a sus préstamos...
+    </div>
+  </div>
+
+  <script>
+    // Obtener monto guardado en localStorage o iniciar en 100
+    let monto = localStorage.getItem("montoPrestamo");
+    if (!monto) {
+      monto = 100;
+      localStorage.setItem("montoPrestamo", monto);
+    } else {
+      monto = parseInt(monto);
+    }
+
+    // Calcular total con interés del 20%
+    let total = monto + monto * 0.20;
+
+    // Mostrar en pantalla
+    document.getElementById("monto").textContent = monto.toFixed(2);
+    document.getElementById("total").textContent = total.toFixed(2);
+
+    function mostrarPago() {
+      document.getElementById("pagoForm").classList.remove("hidden");
+    }
+
+    function confirmarPago() {
+      // Aumentar monto +100 cuando se paga
+      monto += 100;
+      localStorage.setItem("montoPrestamo", monto);
+
+      document.getElementById("msg").classList.remove("hidden");
+
+      // Redirigir después de 3 segundos
+      setTimeout(() => {
+        window.location.href = "solicitarprestamo.html";
+      }, 3000);
+    }
+  </script>
+</body>
+</html>

@@ -3,57 +3,72 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SanaPres - Inicio</title>
+  <title>SanaPreS - Bienvenida</title>
   <style>
     body {
       margin: 0;
       padding: 0;
       font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #0083b0, #00b4db);
-      color: #333;
+      background: linear-gradient(180deg, #00aaff, #0052cc);
       display: flex;
-      flex-direction: column;
-      align-items: center;
       justify-content: center;
+      align-items: center;
       height: 100vh;
+    }
+    .container {
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      width: 100%;
+      max-width: 350px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
       text-align: center;
     }
-    header img {
-      width: 100px;
-      margin-bottom: 20px;
-    }
-    h1 {
-      font-size: 2.5em;
-      margin: 0 0 10px 0;
-      color: white;
-    }
-    p {
-      color: #f0f0f0;
-      margin-bottom: 30px;
-    }
-    a {
-      display: inline-block;
-      padding: 12px 25px;
-      background-color: #ffffff;
-      color: #0083b0;
-      text-decoration: none;
-      font-weight: bold;
+    .logo-img { width: 80px; margin-bottom: 10px; }
+    .brand { font-size: 1.8em; font-weight: bold; color: #0052cc; margin-bottom: 8px; }
+    .subtitle { font-size: 1em; color: #333; margin-bottom: 20px; }
+    input {
+      width: 100%;
+      padding: 12px;
+      margin: 8px 0;
+      border: 1px solid #ccc;
       border-radius: 8px;
-      transition: 0.3s;
+      font-size: 1em;
     }
-    a:hover {
-      background-color: #f0f0f0;
+    button {
+      width: 100%;
+      padding: 12px;
+      margin-top: 15px;
+      background: #0052cc;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1em;
+      cursor: pointer;
     }
+    button:hover { background: #003d99; }
   </style>
 </head>
 <body>
-  <header>
-    <img src="logo.png" alt="Logo de SanaPres">
-  </header>
-  <main>
-    <h1>Bienvenido a SanaPres</h1>
-    <p>Tu solución rápida y segura para préstamos.</p>
-    <a href="registro.html">Crear cuenta</a>
-  </main>
+  <div class="container">
+    <!-- Logo -->
+    <svg class="logo-img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+      <circle cx="32" cy="32" r="30" fill="#00aaff"/>
+      <path d="M20 34 L28 42 L46 22" stroke="white" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+
+    <!-- Marca -->
+    <div class="brand">SanaPreS</div>
+
+    <!-- Mensaje -->
+    <div class="subtitle">Bienvenido a tu app de préstamos rápidos</div>
+
+    <!-- Formulario que redirige a registro.html -->
+    <form onsubmit="event.preventDefault(); window.location.href='registro.html';">
+      <input type="text" placeholder="Correo o número de celular" required>
+      <input type="password" placeholder="Contraseña" required>
+      <button type="submit">Crear cuenta</button>
+    </form>
+  </div>
 </body>
 </html>
