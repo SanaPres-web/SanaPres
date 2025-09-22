@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mis Préstamos - SanaPres</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #00b4db, #0083b0);
+      padding: 20px;
+      margin: 0;
+      color: #fff;
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .prestamo {
+      background: #fff;
+      color: #333;
+      padding: 15px;
+      margin-bottom: 15px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+  </style>
+</head>
+<body>
+  <h2>Mis Préstamos</h2>
+
+  <div class="prestamo">
+    <p><strong>Monto:</strong> S/ 1000</p>
+    <p><strong>A pagar:</strong> S/ 1200</p>
+    <p><strong>Plazo:</strong> 30 días</p>
+  </div>
+
+  <div class="prestamo">
+    <p><strong>Monto:</strong> S/ 500</p>
+    <p><strong>A pagar:</strong> S/ 600</p>
+    <p><strong>Plazo:</strong> 15 días</p>
+  </div>
+</body>
+</html>
